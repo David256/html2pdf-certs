@@ -34,6 +34,7 @@ const Template: ComponentStory<typeof Html2PdfCerts> = (args) => {
 export const BasicExample = Template.bind({})
 BasicExample.args = {
   imageUrl: imageDefaultDark,
+  transformationScale: 0.3,
   rows: [
     { type: 'break', times: 17 },
     { type: 'h3', content: 'Certifica que' },

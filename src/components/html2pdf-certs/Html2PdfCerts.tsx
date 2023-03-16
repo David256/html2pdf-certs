@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, type FunctionComponent } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, type FunctionComponent } from 'react'
 import { useState, createElement } from 'react'
 // @ts-expect-error
 import html2pdf from 'html2pdf.js'
@@ -25,6 +25,7 @@ export interface IHtml2PdfCertsProps {
   orientation?: string,
   unit?: string,
   imageUrl?: string,
+  transformationScale?: number,
 }
 
 
@@ -39,13 +40,10 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
     orientation = 'landscape',
     unit = 'px',
     imageUrl,
+    transformationScale = 0.5,
   } = props
 
   const [pendingShot, setPendingShot] = useState(false)
-  const [stylesForScale] = useState({
-    transform: 'scale(0.5)',
-    transformOrigin: 'top left',
-  })
 
   const divRef = useRef<HTMLDivElement>(null)
 
@@ -104,6 +102,11 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
       generatePdf,
     }
   })
+
+  const stylesForScale = useMemo(() => ({
+    transform: `scale(${transformationScale || 0.5})`,
+    transformOrigin: 'top left',
+  }), [transformationScale])
 
   useEffect(() => {
     if (pendingShot) {
