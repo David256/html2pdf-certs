@@ -18,3 +18,22 @@ import { Html2PdfCerts } from 'html2pdf-certs'
 // Import styles CSS
 import 'html2pdf-certs/dist/styles.css'
 ```
+
+## Development
+
+### Storybook
+```bash
+npm run storybook
+```
+
+![screenshot](screenshot.png)
+
+### Dist
+```bash
+npm run dist
+```
+
+### Build
+```bash
+npm run build
+```
