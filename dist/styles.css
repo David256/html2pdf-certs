@@ -1,0 +1,48 @@
+
+.html-2-pdf-certs, .html-2-pdf-certs > * {
+    padding: 0;
+    margin: 0;
+    line-height: 1em;
+}
+
+.html-2-pdf-certs {
+    text-align: center;
+    /* background-image: url('../../assets/default.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 11in;
+    height: 8.5in;
+    /* width: 1600px;
+    height: 899px; */
+    --blue: #132D5E;
+    --gray: #6E6262;
+}
+
+.html-2-pdf-certs h1 {
+    text-transform: uppercase;
+    font-size: 65pt;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 8pt;
+}
+
+.html-2-pdf-certs h2 {
+    text-transform: uppercase;
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 28pt;
+}
+
+.html-2-pdf-certs h3 {
+    text-transform: uppercase;
+    color: var(--gray);
+    font-weight: 400;
+    font-size: 20pt;
+}
+
+.html-2-pdf-certs h4 {
+    color: var(--gray);
+    font-weight: 400;
+    font-size: 20pt;
+    letter-spacing: 2pt;
+}
