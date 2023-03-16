@@ -86,7 +86,9 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
       case 'text':
         return parseContent(row.content)
       case 'break':
-        return <br />
+        if (typeof row.times !== 'number')
+          return <br />
+        return Array.from({length: row.times}, (_, index) => <br key={index} />)
       case 'h1':
       case 'h2':
       case 'h3':
