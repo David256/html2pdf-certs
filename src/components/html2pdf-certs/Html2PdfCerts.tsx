@@ -17,8 +17,8 @@ export interface Html2PdfCertsRef {
 
 export interface IHtml2PdfCertsProps {
   onGenerated?: (data: Blob) => void,
-  onStartGenerate: () => void,
-  onEndGenerate: () => void,
+  onStartGenerate?: () => void,
+  onEndGenerate?: () => void,
   rows?: CertRow[],
   filename?: string,
   margin?: number,
