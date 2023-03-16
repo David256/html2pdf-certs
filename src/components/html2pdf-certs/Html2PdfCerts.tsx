@@ -41,6 +41,10 @@ export const Html2PdfCerts = forwardRef<any, IHtml2PdfCertsProps>((props, ref) =
   const divRef = useRef<HTMLDivElement>(null)
 
   const generatePdf = async () => {
+    setPendingShot(true)
+  }
+
+  const buildPdf = async () => {
     console.log('calls generatePdf method')
     const worker = new html2pdf.Worker()
 
@@ -89,6 +93,12 @@ export const Html2PdfCerts = forwardRef<any, IHtml2PdfCertsProps>((props, ref) =
       generatePdf,
     }
   })
+
+  useEffect(() => {
+    if (pendingShot) {
+      buildPdf()
+    }
+  }, [pendingShot])
 
   return (
     <div
