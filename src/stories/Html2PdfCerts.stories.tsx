@@ -1,7 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import { Html2PdfCerts, Html2PdfCertsRef } from '../components/html2pdf-certs/Html2PdfCerts'
+
+// @ts-expect-error
+import imageDefaultDark from './assets/default.dark.png'
 
 export default {
   title: 'UI/Html2PdfCerts',
@@ -30,6 +33,7 @@ const Template: ComponentStory<typeof Html2PdfCerts> = (args) => {
 
 export const BasicExample = Template.bind({})
 BasicExample.args = {
+  imageUrl: imageDefaultDark,
   rows: [
     { type: 'break' },
     { type: 'break' },
