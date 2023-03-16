@@ -1,4 +1,4 @@
-import { useRef, type FunctionComponent } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useRef, type FunctionComponent } from 'react'
 import { useState, createElement } from 'react'
 // @ts-expect-error
 import html2pdf from 'html2pdf.js'
@@ -20,7 +20,7 @@ export interface IHtml2PdfCertsProps {
 }
 
 
-export const Html2PdfCerts: FunctionComponent<IHtml2PdfCertsProps> = (props) => {
+export const Html2PdfCerts = forwardRef<any, IHtml2PdfCertsProps>((props, ref) => {
   const {
     onGenerated = () => {},
     rows = [],
@@ -38,10 +38,10 @@ export const Html2PdfCerts: FunctionComponent<IHtml2PdfCertsProps> = (props) => 
     transformOrigin: 'top left',
   })
 
-  const ref = useRef()
   const divRef = useRef<HTMLDivElement>(null)
 
   const generatePdf = async () => {
+    console.log('calls generatePdf method')
     const worker = new html2pdf.Worker()
 
     const opt = {
@@ -84,6 +84,12 @@ export const Html2PdfCerts: FunctionComponent<IHtml2PdfCertsProps> = (props) => 
     }
   }
 
+  useImperativeHandle(ref, () => {
+    return {
+      generatePdf,
+    }
+  })
+
   return (
     <div
       style={{
@@ -96,4 +102,4 @@ export const Html2PdfCerts: FunctionComponent<IHtml2PdfCertsProps> = (props) => 
       {rows.map((row) => parseRow(row))}
     </div>
   )
-}
+})
