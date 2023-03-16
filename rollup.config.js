@@ -14,7 +14,7 @@ export default {
     },
     external: ['react', 'react-dom', 'html2pdf.js', 'react/jsx-runtime'],
     plugins: [
-        css(),
+        css({ output: 'styles.css' }),
         image(),
         typescript({
             tsconfig: 'tsconfig.json',
