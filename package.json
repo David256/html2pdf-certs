@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A React component that uses html2pdf to create certification documents I guess",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
+  "types": "dist/types/main.d.ts",
   "scripts": {
     "build": "tsc",
     "dist": "rollup -c",
