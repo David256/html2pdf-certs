@@ -36,6 +36,10 @@ BasicExample.args = {
   imageUrl: imageDefaultDark,
   transformationScale: 0.3,
   backgroundColor: 'red',
+  sizeStyle: {
+    width: '1600px',
+    height: 899,
+  },
   rows: [
     { type: 'break', times: 17 },
     { type: 'h3', content: 'Certifica que' },

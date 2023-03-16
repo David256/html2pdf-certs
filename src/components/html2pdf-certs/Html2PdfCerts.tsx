@@ -27,6 +27,10 @@ export interface IHtml2PdfCertsProps {
   imageUrl?: string,
   transformationScale?: number,
   backgroundColor?: string,
+  sizeStyle?: {
+    width: string | number,
+    height: string | number,
+  },
 }
 
 
@@ -43,6 +47,7 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
     imageUrl,
     transformationScale = 0.5,
     backgroundColor = 'yellowgreen',
+    sizeStyle,
   } = props
 
   const [pendingShot, setPendingShot] = useState(false)
@@ -121,6 +126,10 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
       style={{
         backgroundColor,
         backgroundImage: `url(${imageUrl || imageDefault})`,
+        ...(sizeStyle ? {
+          width: typeof sizeStyle.width === 'number' ? `${sizeStyle.width}px` : sizeStyle.width,
+          height: typeof sizeStyle.height === 'number' ? `${sizeStyle.height}px` : sizeStyle.height,
+        } : undefined),
         ...(pendingShot ? {} : stylesForScale)
       }}
       ref={divRef}

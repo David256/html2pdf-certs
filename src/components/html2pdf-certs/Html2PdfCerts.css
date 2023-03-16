@@ -10,10 +10,10 @@
     /* background-image: url('../../assets/default.png'); */
     background-size: contain;
     background-repeat: no-repeat;
-    /* width: 11in;
-    height: 8.5in; */
-    width: 1600px;
-    height: 899px;
+    width: 11in;
+    height: 8.5in;
+    /* width: 1600px;
+    height: 899px; */
     --blue: #132D5E;
     --gray: #6E6262;
 }
