@@ -1,0 +1,27 @@
+{
+  "name": "html2pdf-certs",
+  "version": "1.0.0",
+  "description": "A React component that uses html2pdf to create certification documents I guess",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David256/html2pdf-certs.git"
+  },
+  "keywords": [
+    "html",
+    "pdf",
+    "certs",
+    "react",
+    "component",
+    "typescript"
+  ],
+  "author": "David Waster",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/David256/html2pdf-certs/issues"
+  },
+  "homepage": "https://github.com/David256/html2pdf-certs#readme"
+}
