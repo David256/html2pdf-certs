@@ -6,6 +6,8 @@ import html2pdf from 'html2pdf.js'
 import { CertRow } from './types'
 
 import './Html2PdfCerts.css'
+// @ts-expect-error
+import imageDefault from '../../assets/default.png'
 
 
 export interface Html2PdfCertsRef {
@@ -22,6 +24,7 @@ export interface IHtml2PdfCertsProps {
   format?: [number, number] | string,
   orientation?: string,
   unit?: string,
+  imageUrl?: string,
 }
 
 
@@ -35,6 +38,7 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
     format = [1600, 899],
     orientation = 'landscape',
     unit = 'px',
+    imageUrl,
   } = props
 
   const [pendingShot, setPendingShot] = useState(false)
@@ -109,6 +113,7 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
     <div
       style={{
         backgroundColor: 'yellowgreen',
+        backgroundImage: `url(${imageUrl || imageDefault})`,
         ...(pendingShot ? {} : stylesForScale)
       }}
       ref={divRef}
