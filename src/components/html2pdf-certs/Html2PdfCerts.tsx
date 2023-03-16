@@ -16,7 +16,7 @@ export interface Html2PdfCertsRef {
 
 
 export interface IHtml2PdfCertsProps {
-  onGenerated?: (data: any) => void,
+  onGenerated?: (data: Blob) => void,
   onStartGenerate: () => void,
   onEndGenerate: () => void,
   rows?: CertRow[],
@@ -78,11 +78,19 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
     }
     // [1600, 899]
   
-    worker.set(opt).from(divRef.current).save().then(() => {
-      setPendingShot(false)
-      onGenerated(null)
-      onEndGenerate()
-    })
+    const worked = worker
+      .set(opt)
+      .from(divRef.current)
+      .toPdf()
+      .output('blob').then((data: Blob) => {
+        console.log('blob data', data)
+        onGenerated(data)
+        return data
+      })
+      .save().then(() => {
+        setPendingShot(false)
+        onEndGenerate()
+      })
   }
 
   const parseContent = (content?: CertRow['content']) => {
