@@ -8,6 +8,11 @@ import { CertRow } from './types'
 import './Html2PdfCerts.css'
 
 
+export interface Html2PdfCertsRef {
+  generatePdf: () => void,
+}
+
+
 export interface IHtml2PdfCertsProps {
   onGenerated?: () => void,
   rows?: CertRow[],
@@ -20,7 +25,7 @@ export interface IHtml2PdfCertsProps {
 }
 
 
-export const Html2PdfCerts = forwardRef<any, IHtml2PdfCertsProps>((props, ref) => {
+export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((props, ref) => {
   const {
     onGenerated = () => {},
     rows = [],

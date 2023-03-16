@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { useEffect, useRef } from 'react'
 
-import { Html2PdfCerts } from '../components/html2pdf-certs/Html2PdfCerts'
+import { Html2PdfCerts, Html2PdfCertsRef } from '../components/html2pdf-certs/Html2PdfCerts'
 
 export default {
   title: 'UI/Html2PdfCerts',
@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof Html2PdfCerts>
 
 const Template: ComponentStory<typeof Html2PdfCerts> = (args) => {
-  const ref = useRef<any>(null)
+  const ref = useRef<Html2PdfCertsRef>(null)
 
   const onClick = () => {
     if (!ref.current) {
