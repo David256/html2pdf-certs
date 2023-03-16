@@ -35,6 +35,7 @@ export const BasicExample = Template.bind({})
 BasicExample.args = {
   imageUrl: imageDefaultDark,
   transformationScale: 0.3,
+  backgroundColor: 'red',
   rows: [
     { type: 'break', times: 17 },
     { type: 'h3', content: 'Certifica que' },
