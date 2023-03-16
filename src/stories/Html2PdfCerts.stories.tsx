@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 import { Html2PdfCerts, Html2PdfCertsRef } from '../components/html2pdf-certs/Html2PdfCerts'
 
@@ -21,16 +21,22 @@ const Template: ComponentStory<typeof Html2PdfCerts> = (args) => {
       alert('ref current is null')
       return
     }
-    ref.current.generatePdf();
+    console.log('call pdfHandler')
+    ref.current.generatePdf()
   }
 
   return(
     <>
     <button onClick={onClick}>Generate PDF</button>
-    <Html2PdfCerts ref={ref} {...args} />
+    <Html2PdfCerts
+      handler={ref}
+      {...args}
+    />
     </>
   )
 }
+
+export const SimpleExample = Template.bind({})
 
 export const BasicExample = Template.bind({})
 BasicExample.args = {

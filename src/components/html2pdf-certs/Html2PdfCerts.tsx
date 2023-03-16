@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, type FunctionComponent } from 'react'
+import { MutableRefObject, useEffect, useImperativeHandle, useMemo, useRef, type FunctionComponent } from 'react'
 import { useState, createElement } from 'react'
 // @ts-expect-error
 import html2pdf from 'html2pdf.js'
@@ -16,6 +16,7 @@ export interface Html2PdfCertsRef {
 
 
 export interface IHtml2PdfCertsProps {
+  handler?: MutableRefObject<Html2PdfCertsRef | null>
   onGenerated?: (data: Blob) => void,
   onStartGenerate?: () => void,
   onEndGenerate?: () => void,
@@ -36,8 +37,9 @@ export interface IHtml2PdfCertsProps {
 }
 
 
-export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((props, ref) => {
+export const Html2PdfCerts: FunctionComponent<IHtml2PdfCertsProps> = (props) => {
   const {
+    handler,
     onGenerated = () => {},
     onStartGenerate = () => {},
     onEndGenerate = () => {},
@@ -118,7 +120,7 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
     }
   }
 
-  useImperativeHandle(ref, () => {
+  useImperativeHandle(handler, () => {
     return {
       generatePdf,
     }
@@ -152,4 +154,4 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
       {rows.map((row) => parseRow(row))}
     </div>
   )
-})
+}
