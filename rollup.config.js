@@ -18,6 +18,7 @@ export default {
         image(),
         typescript({
             tsconfig: 'tsconfig.json',
+            declarationDir: 'types',
         }),
     ],
 }
