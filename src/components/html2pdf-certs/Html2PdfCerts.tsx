@@ -16,7 +16,9 @@ export interface Html2PdfCertsRef {
 
 
 export interface IHtml2PdfCertsProps {
-  onGenerated?: () => void,
+  onGenerated?: (data: any) => void,
+  onStartGenerate: () => void,
+  onEndGenerate: () => void,
   rows?: CertRow[],
   filename?: string,
   margin?: number,
@@ -37,6 +39,8 @@ export interface IHtml2PdfCertsProps {
 export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((props, ref) => {
   const {
     onGenerated = () => {},
+    onStartGenerate = () => {},
+    onEndGenerate = () => {},
     rows = [],
     filename = 'myfile.pdf',
     margin = 0,
@@ -55,6 +59,7 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
   const divRef = useRef<HTMLDivElement>(null)
 
   const generatePdf = async () => {
+    onStartGenerate()
     setPendingShot(true)
   }
 
@@ -75,7 +80,8 @@ export const Html2PdfCerts = forwardRef<Html2PdfCertsRef, IHtml2PdfCertsProps>((
   
     worker.set(opt).from(divRef.current).save().then(() => {
       setPendingShot(false)
-      onGenerated()
+      onGenerated(null)
+      onEndGenerate()
     })
   }
 

@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import { useRef } from 'react'
 
 import { Html2PdfCerts, Html2PdfCertsRef } from '../components/html2pdf-certs/Html2PdfCerts'
@@ -40,6 +41,9 @@ BasicExample.args = {
     width: '1600px',
     height: 899,
   },
+  onStartGenerate: action('onStartGenerate'),
+  onGenerated: action('onGenerated'),
+  onEndGenerate: action('onEndGenerate'),
   rows: [
     { type: 'break', times: 17 },
     { type: 'h3', content: 'Certifica que' },
