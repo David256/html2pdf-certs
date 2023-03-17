@@ -2,7 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { useRef, useState } from 'react'
 
-import { Html2PdfCerts, Html2PdfCertsRef } from '../components/html2pdf-certs/Html2PdfCerts'
+import { Html2PdfCerts } from '../components/html2pdf-certs/Html2PdfCerts'
+import { Html2PdfCertsRef } from '../components/html2pdf-certs/types'
 
 // @ts-expect-error
 import imageDefaultDark from './assets/default.dark.png'

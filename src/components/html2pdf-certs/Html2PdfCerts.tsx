@@ -3,16 +3,11 @@ import { useState, createElement } from 'react'
 // @ts-expect-error
 import html2pdf from 'html2pdf.js'
 
-import { CertRow } from './types'
+import { CertRow, Html2PdfCertsRef } from './types'
 
 import './Html2PdfCerts.css'
 // @ts-expect-error
 import imageDefault from '../../assets/default.png'
-
-
-export interface Html2PdfCertsRef {
-  generatePdf: () => void,
-}
 
 
 export interface IHtml2PdfCertsProps {
