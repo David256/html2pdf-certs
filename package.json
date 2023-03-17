@@ -1,6 +1,6 @@
 {
   "name": "html2pdf-certs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A React component that uses html2pdf to create certification documents I guess",
   "type": "module",
   "main": "dist/main.js",
