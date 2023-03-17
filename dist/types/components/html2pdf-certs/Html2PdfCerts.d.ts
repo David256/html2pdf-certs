@@ -1,9 +1,6 @@
 import { MutableRefObject, type FunctionComponent } from 'react';
-import { CertRow } from './types';
+import { CertRow, Html2PdfCertsRef } from './types';
 import './Html2PdfCerts.css';
-export interface Html2PdfCertsRef {
-    generatePdf: () => void;
-}
 export interface IHtml2PdfCertsProps {
     handler?: MutableRefObject<Html2PdfCertsRef | null>;
     onGenerated?: (data: Blob) => void;

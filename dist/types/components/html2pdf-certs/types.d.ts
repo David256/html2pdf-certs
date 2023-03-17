@@ -3,3 +3,6 @@ export interface CertRow {
     content?: string | CertRow[];
     times?: number;
 }
+export interface Html2PdfCertsRef {
+    generatePdf: () => void;
+}
