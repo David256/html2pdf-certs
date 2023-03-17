@@ -39,6 +39,16 @@ const Template: ComponentStory<typeof Html2PdfCerts> = (args) => {
 
 export const SimpleExample = Template.bind({})
 
+export const ExternalURLExample = Template.bind({})
+ExternalURLExample.args = {
+  imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Green_field.jpg',
+  sizeStyle: {
+    width: 800,
+    height: 490,
+  },
+  format: [800, 490],
+}
+
 export const BasicExample = Template.bind({})
 BasicExample.args = {
   imageUrl: imageDefaultDark,

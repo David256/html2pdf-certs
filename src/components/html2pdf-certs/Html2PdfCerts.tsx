@@ -68,7 +68,7 @@ export const Html2PdfCerts: FunctionComponent<IHtml2PdfCertsProps> = (props) => 
       margin,
       filename,
       image:        { type: 'jpeg', quality: 1.0 },
-      html2canvas:  { scale: 2 },
+      html2canvas:  { scale: 2, useCORS: true },
       enableLinks,
       jsPDF:        { unit, format, orientation },
       // jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
